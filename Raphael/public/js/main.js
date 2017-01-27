@@ -1,0 +1,1 @@
+alert("LIfe is awesome!")

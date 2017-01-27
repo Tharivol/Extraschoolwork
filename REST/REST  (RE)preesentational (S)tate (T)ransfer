@@ -1,0 +1,102 @@
+REST  (RE)preesentational (S)tate (T)ransfer
+
+A software architecture style for creating scalable web services, that make resources available to clients
+
+REST is NOT --a specific tool, tochnology, library or standardized protocol.
+REST is like art: you can't say an API is/isn't REST, but it might be more/less
+	restful
+
+Most basic concept in REST is a RESOURCE!
+resources can be singltons: /api/v2/users/1234
+resources can be collections: /api/v2/users
+
+resources can be queried or modified using HTTP verbs
+
+REST API's should return JSON data.
+
+RESTful API's are stateless
+
+CRUD - IS NOT REST 
+Create, Read, Update, Delete are operationas that you can perform on data. 
+Certain HTTP methods are TYPICALLY used for certain operations, but not always.
+
+**Safe 
+
+A SAFE request has no impact on the server state, wheather that request is sent once, many times, or not at all. 
+
+**Idempotence
+
+If an action is IDEMPOTENT, then performing that action 1 time will have the same effect as performing that action many times. 
+
+GET - is defined as SAFE and IDEMPOTENT,
+
+GET /api/v2/users/234
+GET /api/v2/users
+
+
+PUT - is defined as IDEMPOTENT - Sending one PUT request impacts the server state, but sending mulitple identical PUT requests will not have an additonal effect. 
+commonly, PUT requests are used for updating data
+
+PUT /api/v2/users/234 - {name : "jeff"}  first time it changes but sending again doesn't 			change anything
+
+DELETE - is defined as IDEMPOTENT
+
+DELETE /api/v2/users/234
+
+POST - neither SAFE nor IDEMPOTENT. Each and every POST request can potentially impace the server state. 
+
+POST -/api/v2/users - {name: "steve"} would create a 1000 new steves
+
+view your curent account balance
+GET - /api/v2/accounts/345?fields=balance
+
+view all my recent transactions
+GET - /api/v2/accounts/345/transactions/
+
+Change your home address
+PUT - /api/v2/users/654/ - {address: "123 fake street"}
+
+create a specific user
+PUT-/api/v2/users/654/ - {name :"steve"}  this only happens once.
+
+make a deposit
+POST - /api/v2/accounts/765/ { action:"deposit", amount:"400"}
+
+GET
+POST
+PUT
+DELETE
+Report
+
+HTTP Response codes
+A RESTful API shouls send meaningful HTP response codes to tell the client the result of their request
+
+
+200 - OK
+201 - Created
+204 - No content
+
+300- redirection
+
+404- not found
+
+418
+
+When to use REST?
+	use REST to make resources available to clients
+	Not all HTTP verbs make sense for every resource
+		- you don't want random users sending DELTE requests to random resources
+		- depending on how abstract our resources are, not all HTTP berbs will make sense
+
+DROPBOX
+	REPORT
+
+
+
+
+
+
+
+
+
+

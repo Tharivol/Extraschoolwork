@@ -1,0 +1,24 @@
+
+
+(example)
+http://www.publiclibrary.gov/book?title=bible
+
+GET:
+
+##today's example
+app.get('/getabook')
+request object
+{
+	method: 'GET',
+	protocol: 'http',
+	hostname: 'localhost',
+	port: '8080',
+	path: "/books',
+	query:	{
+		title: 'bible'
+	}
+
+}
+
+Speaking "restfully' the method will be a verb (like get, post, delete)
+and the path will be a noun.
